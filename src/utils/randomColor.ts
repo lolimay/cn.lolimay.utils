@@ -10,9 +10,9 @@ export function randomColor(type: ColorType = ColorType.HEX): string {
     }
 
     if (<ColorType>type.toUpperCase() === ColorType.RGB) {
-        const red = parseInt(hexColorString.slice(0, 1), 16).toString().padStart(3, '0');
-        const green = parseInt(hexColorString.slice(2, 3), 16).toString().padStart(3, '0');
-        const blue = parseInt(hexColorString.slice(4, 5), 16).toString().padStart(3, '0');
+        const red = parseInt(hexColorString.slice(0, 2), 16).toString().padStart(3, '0');
+        const green = parseInt(hexColorString.slice(2, 4), 16).toString().padStart(3, '0');
+        const blue = parseInt(hexColorString.slice(4, 6), 16).toString().padStart(3, '0');
 
         return(`rgb(${ red },${ green },${ blue })`);
     }
