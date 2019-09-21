@@ -4,7 +4,7 @@
   "description": "lolimay's typescript utils",
   "main": "index.js",
   "scripts": {
-    "start": "parcel watch index.html",
+    "start": "parcel -p 1234 watch index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
