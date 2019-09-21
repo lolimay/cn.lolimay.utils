@@ -1,0 +1,23 @@
+{
+  "name": "cn.lolimay.utils",
+  "version": "1.0.0",
+  "description": "lolimay's typescript utils",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel watch index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lolimay/cn.lolimay.utils.git"
+  },
+  "author": "lolimay",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lolimay/cn.lolimay.utils/issues"
+  },
+  "homepage": "https://github.com/lolimay/cn.lolimay.utils#readme",
+  "devDependencies": {
+    "typescript": "^3.6.3"
+  }
+}
