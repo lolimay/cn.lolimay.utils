@@ -1,29 +1,35 @@
 import { randomColor } from './utils';
+import './style.css';
 
 const table = document.createElement('table');
 
-const TABLE_SIZE = 200;
-const BLOCK_SIZE = '73px';
+const TABLE_SIZE = Math.pow(10, 18);
+const tr: HTMLTableRowElement = document.createElement('tr');
 
-for (let i=0; i<TABLE_SIZE; i++) {
-    const tr = document.createElement('tr');
-    tr.style.display = 'flex';
-    tr.style.flexWrap = 'wrap';
-
-    for (let j=0; j<TABLE_SIZE; j++) {
-        const td = document.createElement('td');
-
-        td.style.color = 'white';
-        td.innerText = td.style.background = randomColor();
-        td.style.textShadow = '0 0 5px #000000';
-        td.style.display = 'flex';
-        td.style.alignItems = 'center';
-        td.style.justifyContent = 'center';
-        td.style.width = BLOCK_SIZE;
-        td.style.height = BLOCK_SIZE;
-
-        tr.appendChild(td);
-    }
-    table.appendChild(tr);
-}
+tr.style.display = 'flex';
+tr.style.flexWrap = 'wrap';
+table.appendChild(tr);
 document.body.appendChild(table);
+
+let count = TABLE_SIZE;
+async function render() {
+    if (count > 0) {
+        setTimeout(() => {
+            render();
+        }, 0);
+    }
+
+    createTd().then(td => {
+        tr.appendChild(td);
+    })
+
+    count--;
+}
+render();
+
+async function createTd(): Promise<HTMLTableDataCellElement> {
+    const td: HTMLTableDataCellElement = await document.createElement('td');
+    
+    td.innerText = td.style.background = randomColor();
+    return td;
+}
