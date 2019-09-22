@@ -1,9 +1,9 @@
 import { randomColor } from './utils';
-import './style.css';
+import './style.styl';
 
 const table = document.createElement('table');
 
-let TABLE_SIZE = 100;
+const TABLE_SIZE = Math.pow(10, 6);
 const tr: HTMLTableRowElement = document.createElement('tr');
 
 tr.style.display = 'flex';
@@ -24,13 +24,9 @@ async function render() {
     count--;
 }
 
-function multiRender() {
-    for (let i=0; i<500; i++) {
-        render();
-    }
+for (let i=0; i<500; i++) {
+    render();
 }
-
-multiRender();
 
 async function createTd(): Promise<HTMLTableDataCellElement> {
     const td: HTMLTableDataCellElement = await document.createElement('td');
