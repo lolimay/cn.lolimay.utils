@@ -1,4 +1,5 @@
-import { randomColor } from './utils';
+import { randomColor, randomString } from './utils';
+import Clipboard from 'clipboard';
 import './style.styl';
 
 const table: HTMLTableElement = document.createElement('table');
@@ -24,6 +25,8 @@ async function render() {
 async function createTd(): Promise<HTMLTableDataCellElement> {
     const td: HTMLTableDataCellElement = await document.createElement('td');
     
-    td.innerText = td.style.background = randomColor();
+    new Clipboard(td);
+    td.setAttribute('data-clipboard-text', td.innerText = td.style.background = randomColor());
+    
     return td;
 }
