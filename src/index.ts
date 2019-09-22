@@ -11,7 +11,7 @@ tr.style.flexWrap = 'wrap';
 table.appendChild(tr);
 document.body.appendChild(table);
 
-let count = TABLE_SIZE;
+let count: number = TABLE_SIZE;
 async function render() {
     if (count > 0) {
         setTimeout(() => {
