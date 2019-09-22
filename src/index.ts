@@ -3,7 +3,7 @@ import './style.css';
 
 const table = document.createElement('table');
 
-const TABLE_SIZE = Math.pow(10, 18);
+let TABLE_SIZE = 100;
 const tr: HTMLTableRowElement = document.createElement('tr');
 
 tr.style.display = 'flex';
@@ -14,9 +14,7 @@ document.body.appendChild(table);
 let count: number = TABLE_SIZE;
 async function render() {
     if (count > 0) {
-        setTimeout(() => {
-            render();
-        }, 0);
+        setTimeout(render, 0);
     }
 
     createTd().then(td => {
@@ -25,7 +23,14 @@ async function render() {
 
     count--;
 }
-render();
+
+function multiRender() {
+    for (let i=0; i<500; i++) {
+        render();
+    }
+}
+
+multiRender();
 
 async function createTd(): Promise<HTMLTableDataCellElement> {
     const td: HTMLTableDataCellElement = await document.createElement('td');
