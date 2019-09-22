@@ -1,31 +1,24 @@
 import { randomColor } from './utils';
 import './style.styl';
 
-const table = document.createElement('table');
-
-const TABLE_SIZE = Math.pow(10, 6);
+const table: HTMLTableElement = document.createElement('table');
 const tr: HTMLTableRowElement = document.createElement('tr');
 
-tr.style.display = 'flex';
-tr.style.flexWrap = 'wrap';
 table.appendChild(tr);
 document.body.appendChild(table);
 
-let count: number = TABLE_SIZE;
-async function render() {
-    if (count > 0) {
-        setTimeout(render, 0);
-    }
-
-    createTd().then(td => {
-        tr.appendChild(td);
-    })
-
-    count--;
-}
-
 for (let i=0; i<500; i++) {
     render();
+}
+
+async function render() {
+    const td = await createTd();
+
+    tr.appendChild(td);
+
+    if (Math.random() > 0.1) {
+        setTimeout(render, 0);
+    }
 }
 
 async function createTd(): Promise<HTMLTableDataCellElement> {
