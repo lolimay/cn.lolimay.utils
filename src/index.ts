@@ -12,8 +12,8 @@ for (let i=0; i<500; i++) {
     render();
 }
 
-async function render() {
-    const td = await createTd();
+function render() {
+    const td = createTd();
 
     tr.appendChild(td);
 
@@ -22,8 +22,8 @@ async function render() {
     }
 }
 
-async function createTd(): Promise<HTMLTableDataCellElement> {
-    const td: HTMLTableDataCellElement = await document.createElement('td');
+function createTd(): HTMLTableDataCellElement {
+    const td: HTMLTableDataCellElement = document.createElement('td');
     
     new Clipboard(td);
     td.setAttribute('data-clipboard-text', td.innerText = td.style.background = randomColor());
